@@ -24,14 +24,13 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Find TextViews by ID
-        val titleTextView = view.findViewById<TextView>(R.id.textTitle)
-        val artistTextView = view.findViewById<TextView>(R.id.textArtist)
-        val descriptionTextView = view.findViewById<TextView>(R.id.textDescription)
-
-        // Show data from arguments
-        titleTextView.text = args.albumTitle
-        artistTextView.text = args.artistName
-        descriptionTextView.text = args.description
+        // Set value to each TextView
+        view.findViewById<TextView>(R.id.textTitle).text = "Album Title: ${args.albumTitle}"
+        view.findViewById<TextView>(R.id.textArtist).text = "Artist Name: ${args.artistName}"
+        view.findViewById<TextView>(R.id.textYear).text = "Release Year: ${args.releaseYear}"
+        view.findViewById<TextView>(R.id.textGenre).text = "Genre: ${args.genre}"
+        view.findViewById<TextView>(R.id.textTrackCount).text = "Track Count: ${args.trackCount}"
+        view.findViewById<TextView>(R.id.textPopularTrack).text = "Popular Track: ${args.popularTrack}"
+        view.findViewById<TextView>(R.id.textDescription).text = "Description:\n${args.description}"
     }
 }

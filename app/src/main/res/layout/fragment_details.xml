@@ -9,6 +9,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Main Title -->
+        <TextView
+            android:id="@+id/textScreenTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp" />
+
         <!-- Album Title -->
         <TextView
             android:id="@+id/textTitle"
@@ -57,7 +67,7 @@
             android:id="@+id/textPopularTrack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Popular Track"
+            android:text="Popular Track:"
             android:paddingBottom="8dp" />
 
         <!-- Description -->
@@ -65,7 +75,7 @@
             android:id="@+id/textDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="Description:"
             android:paddingTop="8dp"
             android:textSize="14sp" />
     </LinearLayout>
