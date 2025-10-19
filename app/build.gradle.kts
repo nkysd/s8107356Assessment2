@@ -41,6 +41,8 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.2")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
