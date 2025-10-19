@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    id("com.google.dagger.hilt.android")
+    kotlin("kapt") // for annotation processing
 }
 
 android {
@@ -38,11 +41,29 @@ android {
 }
 
 dependencies {
+    // Kotlin extensions and core Android KTX library
     implementation("androidx.core:core-ktx:1.12.0")
+
+    // Navigation component for Fragment
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    // Navigation component for UI
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.2")
+
+    // Retrofit core library for networking
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // Gson converter to parse JSON responses into data classes
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Kotlin Coroutines core support (background threading)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    // Coroutines support for Android main thread
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    // Hilt for Android
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-compiler:2.48")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

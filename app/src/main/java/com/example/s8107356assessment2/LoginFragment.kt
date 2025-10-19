@@ -5,28 +5,58 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.s8107356assessment2.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
+
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for Login Fragment
+        // Show the Login Fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Get reference to the login button
+        // Find views
+        val usernameEditText: EditText = view.findViewById(R.id.editTextUsername)
+        val passwordEditText: EditText = view.findViewById(R.id.editTextPassword)
         val loginButton: Button = view.findViewById(R.id.loginButton)
 
-        // Set click listener to navigate to Dashboard
+        // When button is clicked
         loginButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+            val username = usernameEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(requireContext(), "Please enter both fields", Toast.LENGTH_SHORT).show()
+            } else {
+                // Call login() in ViewModel
+                viewModel.login("sydney", username, password)
+            }
+        }
+
+        // Observe login result
+        viewModel.loginResult.observe(viewLifecycleOwner) { result ->
+            result.onSuccess { keypass ->
+                // Login success: go to Dashboard
+                findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+            }
+            result.onFailure { error ->
+                // Login failed: show error
+                Toast.makeText(requireContext(), "Login failed: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
