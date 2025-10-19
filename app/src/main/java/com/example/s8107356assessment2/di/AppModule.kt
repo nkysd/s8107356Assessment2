@@ -32,4 +32,12 @@ object AppModule {
     fun provideAuthRepository(apiService: ApiService): AuthRepository {
         return AuthRepository(apiService)
     }
+
+    @Provides
+    fun provideDashboardRepository(
+        apiService: ApiService
+    ): DashboardRepository {
+        return DashboardRepository(apiService)
+    }
+
 }
