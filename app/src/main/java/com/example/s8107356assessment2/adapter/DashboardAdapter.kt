@@ -9,7 +9,8 @@ import com.example.s8107356assessment2.R
 import com.example.s8107356assessment2.model.DashboardEntity
 
 class DashboardAdapter(
-    private val items: List<DashboardEntity>
+    private val items: List<DashboardEntity>,
+    private val onItemClick: (DashboardEntity) -> Unit
 ) : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
 
     inner class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -19,9 +20,11 @@ class DashboardAdapter(
         fun bind(entity: DashboardEntity) {
             albumText.text = entity.albumTitle
             artistText.text = entity.artistName
+
+            itemView.setOnClickListener {
+                onItemClick(entity)
+            }
         }
-
-
 
     }
 

@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.s8107356assessment2.adapter.DashboardAdapter
 import com.example.s8107356assessment2.viewmodel.DashboardViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.navigation.fragment.findNavController
+
 
 @AndroidEntryPoint
 class DashboardFragment : Fragment() {
@@ -44,7 +46,18 @@ class DashboardFragment : Fragment() {
 
         // When data is received, show in RecyclerView
         viewModel.entities.observe(viewLifecycleOwner) { list ->
-            val adapter = DashboardAdapter(list)
+            val adapter = DashboardAdapter(list) { entity ->
+                val action = DashboardFragmentDirections.actionDashboardFragmentToDetailsFragment(
+                    artistName = entity.artistName,
+                    albumTitle = entity.albumTitle,
+                    releaseYear = entity.releaseYear,
+                    genre = entity.genre,
+                    trackCount = entity.trackCount,
+                    description = entity.description,
+                    popularTrack = entity.popularTrack
+                )
+                findNavController().navigate(action)
+            }
             recyclerView.adapter = adapter
         }
 
