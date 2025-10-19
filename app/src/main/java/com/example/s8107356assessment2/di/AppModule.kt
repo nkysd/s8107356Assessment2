@@ -2,6 +2,7 @@ package com.example.s8107356assessment2.di
 
 import com.example.s8107356assessment2.network.ApiService
 import com.example.s8107356assessment2.repository.AuthRepository
+import com.example.s8107356assessment2.repository.DashboardRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,4 +33,12 @@ object AppModule {
     fun provideAuthRepository(apiService: ApiService): AuthRepository {
         return AuthRepository(apiService)
     }
+
+    @Provides
+    fun provideDashboardRepository(
+        apiService: ApiService
+    ): DashboardRepository {
+        return DashboardRepository(apiService)
+    }
+
 }

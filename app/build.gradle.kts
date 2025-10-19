@@ -4,16 +4,16 @@ plugins {
 
     id("com.google.dagger.hilt.android")
     kotlin("kapt") // for annotation processing
+
+    id("androidx.navigation.safeargs.kotlin") version "2.7.7"
 }
 
 android {
     namespace = "com.example.s8107356assessment2"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.s8107356assiessnment2"
+        applicationId = "com.example.s8107356assessment2"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

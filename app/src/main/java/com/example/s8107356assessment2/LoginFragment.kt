@@ -51,7 +51,8 @@ class LoginFragment : Fragment() {
         viewModel.loginResult.observe(viewLifecycleOwner) { result ->
             result.onSuccess { keypass ->
                 // Login success: go to Dashboard
-                findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+                val action = LoginFragmentDirections.actionLoginFragmentToDashboardFragment(keypass)
+                findNavController().navigate(action)
             }
             result.onFailure { error ->
                 // Login failed: show error
