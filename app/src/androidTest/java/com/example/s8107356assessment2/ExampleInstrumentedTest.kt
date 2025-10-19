@@ -1,4 +1,4 @@
-package com.example.s8107356assiessnment2
+package com.example.s8107356assessment2
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
