@@ -43,6 +43,17 @@ android {
 }
 
 dependencies {
+    // For JUnit test
+    testImplementation("junit:junit:4.13.2")
+    // For LiveData test
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    // For coroutine test
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    // For Mockito (to mock classes)
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+    testImplementation("org.mockito:mockito-core:5.2.0")
+
+
     // Kotlin extensions and core Android KTX library
     implementation("androidx.core:core-ktx:1.12.0")
 
