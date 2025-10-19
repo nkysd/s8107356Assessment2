@@ -47,17 +47,17 @@ class LoginFragment : Fragment() {
             }
         }
 
-        // Observe login result
+        // Login success
         viewModel.loginResult.observe(viewLifecycleOwner) { result ->
             result.onSuccess { keypass ->
-                // Login success: go to Dashboard
                 val action = LoginFragmentDirections.actionLoginFragmentToDashboardFragment(keypass)
                 findNavController().navigate(action)
             }
-            result.onFailure { error ->
-                // Login failed: show error
-                Toast.makeText(requireContext(), "Login failed: ${error.message}", Toast.LENGTH_SHORT).show()
-            }
+        }
+
+        // Observe error message (from ViewModel)
+        viewModel.errorMessage.observe(viewLifecycleOwner) { message ->
+            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
         }
     }
 }
