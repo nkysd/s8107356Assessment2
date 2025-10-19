@@ -6,6 +6,8 @@ plugins {
     kotlin("kapt") // for annotation processing
 
     id("androidx.navigation.safeargs.kotlin") version "2.7.7"
+
+    id("kotlin-parcelize")
 }
 
 android {

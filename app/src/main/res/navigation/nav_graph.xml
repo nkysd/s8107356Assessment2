@@ -5,6 +5,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
+    <!-- Login Fragment -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.s8107356assessment2.LoginFragment"
@@ -16,16 +17,53 @@
             app:destination="@id/dashboardFragment" />
     </fragment>
 
+    <!-- Dashboard Fragment -->
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.example.s8107356assessment2.DashboardFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard">
 
-    <!-- Pass keypass (from login) to DashboardFragment -->
-    <argument
-        android:name="keypass"
-        app:argType="string" />
+        <!-- Argument: passed from Login -->
+        <argument
+            android:name="keypass"
+            app:argType="string" />
+
+        <!-- Action: Dashboard to Details -->
+        <action
+            android:id="@+id/action_dashboardFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <!-- Details Fragment -->
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.s8107356assessment2.DetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_details">
+
+        <!-- Arguments passed from Dashboard -->
+        <argument
+            android:name="artistName"
+            app:argType="string" />
+        <argument
+            android:name="albumTitle"
+            app:argType="string" />
+        <argument
+            android:name="releaseYear"
+            app:argType="integer" />
+        <argument
+            android:name="genre"
+            app:argType="string" />
+        <argument
+            android:name="trackCount"
+            app:argType="integer" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="popularTrack"
+            app:argType="string" />
     </fragment>
 
 </navigation>
