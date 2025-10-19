@@ -14,35 +14,31 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DashboardFragment : Fragment() {
 
-    // Get ViewModel
     private val viewModel: DashboardViewModel by viewModels()
-
-    // Get arguments from SafeArgs
     private val args: DashboardFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Load dashboard layout
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Get keypass from arguments
+        // Get keypass from LoginFragment (SafeArgs)
         val keypass = args.keypass
 
-        // Call API to get dashboard data
+        // ✅ Correct: pass only keypass
         viewModel.fetchDashboardData(keypass)
 
-        // Watch entity list from ViewModel
+        // Observe successful entity list
         viewModel.entities.observe(viewLifecycleOwner) { list ->
             Toast.makeText(requireContext(), "Loaded ${list.size} items", Toast.LENGTH_SHORT).show()
         }
 
-        // Watch error from ViewModel
+        // Observe error
         viewModel.error.observe(viewLifecycleOwner) { error ->
             error?.let {
                 Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
