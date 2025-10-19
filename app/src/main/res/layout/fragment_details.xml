@@ -2,12 +2,24 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/screenBackground"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <!-- Main Title -->
+        <TextView
+            android:id="@+id/textScreenTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp" />
 
         <!-- Album Title -->
         <TextView
@@ -16,7 +28,6 @@
             android:layout_height="wrap_content"
             android:text="Album Title"
             android:textSize="20sp"
-            android:textStyle="bold"
             android:paddingBottom="8dp" />
 
         <!-- Artist Name -->
@@ -25,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Artist Name"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:paddingBottom="8dp" />
 
         <!-- Release Year -->
@@ -34,7 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Release Year"
-            android:paddingBottom="4dp" />
+            android:textSize="20sp"
+            android:paddingBottom="8dp" />
 
         <!-- Genre -->
         <TextView
@@ -42,22 +54,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Genre"
-            android:paddingBottom="4dp" />
+            android:textSize="20sp"
+            android:paddingBottom="8dp" />
 
         <!-- Track Count -->
         <TextView
             android:id="@+id/textTrackCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Track Count"
-            android:paddingBottom="4dp" />
+            android:textSize="20sp"
+            android:paddingBottom="8dp" />
 
         <!-- Popular Track -->
         <TextView
             android:id="@+id/textPopularTrack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Popular Track"
+            android:text="Popular Track:"
+            android:textSize="20sp"
             android:paddingBottom="8dp" />
 
         <!-- Description -->
@@ -65,8 +79,9 @@
             android:id="@+id/textDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="Description:"
             android:paddingTop="8dp"
-            android:textSize="14sp" />
+            android:textSize="20sp"
+            android:paddingBottom="8dp" />
     </LinearLayout>
 </ScrollView>
