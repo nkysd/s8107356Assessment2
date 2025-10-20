@@ -55,8 +55,8 @@ It demonstrates **Login authentication**, **Dashboard display**, and **Detail vi
 
 | Tested Class             | Method                             | Result    |
 |--------------------------|------------------------------------|-----------|
-| `LoginViewModelTest`     | loginSuccess / loginFail scenarios | ✅ Passed |
-| `DashboardViewModelTest` | fetch success / failure            | ✅ Passed |
+| `LoginViewModelTest`     | loginSuccess / loginFail scenarios | ☑ Passed |
+| `DashboardViewModelTest` | fetch success / failure            | ☑ Passed |
 
 ---
 
@@ -65,3 +65,22 @@ It demonstrates **Login authentication**, **Dashboard display**, and **Detail vi
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/s8107356Assessment2.git
+   ```
+
+---
+
+## Project Structure (Overview)
+```
+app/
+├── data/         # Model classes and API service (Retrofit)
+├── di/           # Hilt modules for dependency injection
+├── repository/   # Logic to handle API calls and data
+├── ui/           # Fragments for Login, Dashboard, and Details
+├── viewmodel/    # ViewModel classes for UI logic
+
+Each layer follows **MVVM architecture**.  
+Navigation is managed using **SafeArgs**.  
+Project is structured for clarity and scalability.
+```
+
+---
