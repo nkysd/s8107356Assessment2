@@ -33,6 +33,15 @@ android {
             )
         }
     }
+
+    // For DetailsFragment test
+    sourceSets {
+        getByName("androidTest") {
+            res.srcDirs("src/main/res")
+            manifest.srcFile("src/androidTest/AndroidManifest.xml")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -52,6 +61,16 @@ dependencies {
     // For Mockito (to mock classes)
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
     testImplementation("org.mockito:mockito-core:5.2.0")
+
+    // For Android JUnit testing (Android-specific @Test)
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    // For testing Fragments with launchFragmentInContainer
+    androidTestImplementation("androidx.fragment:fragment-testing:1.6.1")
+    // For testing Navigation components (e.g., SafeArgs, NavController)
+    androidTestImplementation("androidx.navigation:navigation-testing:2.7.5")
+    // For testing UI with Espresso (e.g., check text in TextViews)
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
 
 
     // Kotlin extensions and core Android KTX library
