@@ -47,7 +47,7 @@ class LoginViewModelTest {
         runTest {
             val location = "sydney"
             val username = "Mio"
-            val password = "9107356"
+            val password = "8107356"
             val fakeKeypass = "music"
 
             // Return success result
